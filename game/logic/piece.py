@@ -12,17 +12,17 @@ class Piece():
         if color != "W" and color != "B":
             raise Exception("Pieces can only be black, or white.")
         
-        if len(pos) != 2 or A < pos[X] or H < pos[X] or 0 < pos[Y] or 7 < pos[Y]:
+        if len(pos) != 2 or 0 < pos[X] or 7 < pos[X] or 0 < pos[Y] or 7 < pos[Y]:
             raise Exception("Pieces can't be placed here.")
 
         self.pos = pos
         self.color = color
         
 
-    def getPos(self) -> List:
+    def get_pos(self) -> List:
         return self.pos
     
-    def setPos(self, pos: List) -> None:
+    def set_pos(self, pos: List) -> None:
         self.pos = pos
         
     def is_valid_move(self, target_pos: List) -> bool:
@@ -49,12 +49,22 @@ class Rook(Piece):
     def is_valid_move(self, board, start, to):
         pass
 
+    def __str__(self):
+        if self.is_white():
+            return "white-rook"
+        return "black-rook"
+
 class Knight(Piece):
     def __init__(self):
         pass
 
     def is_valid_move(self):
         pass
+
+    def __str__(self):
+        if self.is_white():
+            return "white-knight"
+        return "black-knight"
 
 class Bishop(Piece):
     def __init__(self):
@@ -63,12 +73,23 @@ class Bishop(Piece):
     def is_valid_move(self):
         pass
 
+    def __str__(self):
+        if self.is_white():
+            return "white-bishop"
+        return "black-bishop"
+
+
 class Queen(Piece):
     def __init__(self):
         pass
 
     def is_valid_move(self):
         pass
+
+    def __str__(self):
+        if self.is_white():
+            return "white-queen"
+        return "black-queen"
 
 class King(Piece):
     def __init__(self):
@@ -80,6 +101,11 @@ class King(Piece):
     # I added an extra method for the King class
     def can_castle(self):
         pass
+
+    def __str__(self):
+        if self.is_white():
+            return "white-king"
+        return "black-king"
 
 # Class to represent a pseudo pawn that can be taken when
 # en passant is possible
@@ -96,3 +122,8 @@ class Pawn(Piece):
 
     def is_valid_move(self):
         pass
+
+    def __str__(self):
+        if self.is_white():
+            return "white-pawn"
+        return "black-pawn"
