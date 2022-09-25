@@ -2,11 +2,8 @@ import pygame
 from board import Board
 pygame.init()
 
-IMG = {}
 MAX_FPS = 15
-DIMENSION = 8
-WIDTH = HEIGHT = 512
-SQUARE_SIZE = WIDTH // DIMENSION
+WIDTH = HEIGHT = 750
 
 class Game():
     """
@@ -33,13 +30,11 @@ class Game():
         # to a destination
         pass
 
-
     def main(self):
         surface = pygame.display.set_mode((WIDTH, HEIGHT))
         clock = pygame.time.Clock()
-        surface.fill(pygame.Color("white"))
         
-        self.board.draw_board(surface)
+        self.board.draw_gamestate(surface)
 
         gamesate = ""
 

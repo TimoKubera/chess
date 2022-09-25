@@ -1,3 +1,5 @@
+# Eventuell überflüßig
+
 from typing import List
 
 from board import *
@@ -17,14 +19,13 @@ class Piece():
 
         self.pos = pos
         self.color = color
-        
 
     def get_pos(self) -> List:
         return self.pos
     
     def set_pos(self, pos: List) -> None:
         self.pos = pos
-        
+
     def is_valid_move(self, target_pos: List) -> bool:
         return False
 
