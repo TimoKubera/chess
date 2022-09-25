@@ -55,7 +55,7 @@ class Board():
         for piece in piece_names:
             curr_path = os.getcwd()
             img_path = os.path.join(curr_path, "game/gui/img/", piece + ".png")
-            IMG[piece] = pygame.transform.scale(pygame.image.load(img_path), (SQUARE_SIZE, SQUARE_SIZE))
+            IMG[piece] = pygame.transform.scale(pygame.image.load(img_path), (SQUARE_SIZE * 0.95, SQUARE_SIZE * 0.95))
 
     def get_pos(self, pos):
         return self.board[pos[X]][pos[Y]]
