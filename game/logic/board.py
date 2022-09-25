@@ -27,7 +27,7 @@ class Board():
         ]
 
     def draw_board(self, surface):
-        colors = [pygame.Color(100, 89, 80), pygame.Color(73, 53, 35)]
+        colors = [pygame.Color(205, 165, 105), pygame.Color(73, 53, 35)]
 
         for x in range(DIMENSION):
             for y in range(DIMENSION):
