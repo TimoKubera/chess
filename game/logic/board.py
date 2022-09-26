@@ -7,7 +7,7 @@ IMG = {}
 DIMENSION = 8
 WIDTH = 750
 SQUARE_SIZE = WIDTH // DIMENSION
-OFFSET = SQUARE_SIZE * 0.05
+OFFSET = SQUARE_SIZE * 0.1
 
 class Board():
     """
@@ -43,7 +43,7 @@ class Board():
             for y in range(DIMENSION):
                 piece = self.get_pos((x, y))
                 if piece != "#":
-                    surface.blit(IMG[piece], pygame.Rect(y * SQUARE_SIZE, x * SQUARE_SIZE + OFFSET, SQUARE_SIZE, SQUARE_SIZE))
+                    surface.blit(IMG[piece], pygame.Rect(y * SQUARE_SIZE + OFFSET, x * SQUARE_SIZE + OFFSET, SQUARE_SIZE, SQUARE_SIZE))
 
     def draw_gamestate(self, surface):
         self.draw_board(surface)
@@ -56,7 +56,7 @@ class Board():
         for piece in piece_names:
             curr_path = os.getcwd()
             img_path = os.path.join(curr_path, "game/gui/img/", piece + ".png")
-            IMG[piece] = pygame.transform.smoothscale(pygame.image.load(img_path), (SQUARE_SIZE * 0.95, SQUARE_SIZE * 0.95))
+            IMG[piece] = pygame.transform.smoothscale(pygame.image.load(img_path), (SQUARE_SIZE * 0.8, SQUARE_SIZE * 0.8))
 
     def get_pos(self, pos):
         return self.board[pos[X]][pos[Y]]
