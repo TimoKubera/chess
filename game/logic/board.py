@@ -17,14 +17,14 @@ class Board():
         # replace body with the initialization of a standard
         # chess board with it's pieces placed correctly
         self.board = [
-            ["black-rook", "black-knight", "black-bishop", "black-queen", "black-king", "black-knight", "black-bishop", "black-rook"],
+            ["black-rook", "black-knight", "black-bishop", "black-queen", "black-king", "black-bishop", "black-knight", "black-rook"],
             ["black-pawn", "black-pawn", "black-pawn", "black-pawn", "black-pawn", "black-pawn", "black-pawn", "black-pawn"],
             ["#", "#", "#", "#", "#", "#", "#", "#"],
             ["#", "#", "#", "#", "#", "#", "#", "#"],
             ["#", "#", "#", "#", "#", "#", "#", "#"],
             ["#", "#", "#", "#", "#", "#", "#", "#"],
             ["white-pawn", "white-pawn", "white-pawn", "white-pawn", "white-pawn", "white-pawn", "white-pawn", "white-pawn"],
-            ["white-rook", "white-knight", "white-bishop", "white-queen", "white-king", "white-knight", "white-bishop", "white-rook"]
+            ["white-rook", "white-knight", "white-bishop", "white-queen", "white-king", "white-bishop", "white-knight", "white-rook"]
         ]
         self.load_images()
 
@@ -33,7 +33,7 @@ class Board():
 
         for x in range(DIMENSION):
             for y in range(DIMENSION):
-                color = colors[(x + y) % 2]         # XOR relation for white fields is 0 and for black fields 1
+                color = colors[(x + y) % 2]         # mod2 for white fields is 0 and for black fields 1
                 pygame.draw.rect(surface, color, pygame.Rect(y * SQUARE_SIZE, x * SQUARE_SIZE, SQUARE_SIZE, SQUARE_SIZE))
 
     def draw_pieces(self, surface):
